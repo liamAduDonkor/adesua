@@ -1,0 +1,1 @@
+import{j as r}from"./app-DZ0vWX43.js";import{A as e,a as i,b as p}from"./app-sidebar-header-CGXF-lXY.js";import{f as o}from"./app-shell-DnHRLfMH.js";function m({children:a,breadcrumbs:s=[]}){return r.jsxs(o,{variant:"sidebar",children:[r.jsx(e,{}),r.jsxs(i,{variant:"sidebar",className:"overflow-x-hidden",children:[r.jsx(p,{breadcrumbs:s}),a]})]})}export{m as A};
