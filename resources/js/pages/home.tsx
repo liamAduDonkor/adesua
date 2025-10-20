@@ -270,16 +270,16 @@ export default function Home() {
                 <div className="py-16">
                     <div className="max-w-4xl mx-auto text-center px-6">
                         <h2 className="text-3xl font-bold text-[#1b1b18] dark:text-[#EDEDEC] mb-4">
-                            Ready to Get Started?
+                            Access Your Dashboard
                         </h2>
                         <p className="text-lg text-[#4A4A45] dark:text-[#AFAFA9] mb-8">
-                            Access your personalized dashboard and start managing your educational journey today.
+                            Manage your educational journey and access all your personalized features and tools.
                         </p>
                         <Link
                             href={dashboard()}
                             className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-medium text-[#FDFDFC] bg-[#1b1b18] hover:bg-[#141411] dark:text-[#0a0a0a] dark:bg-[#EDEDEC] dark:hover:bg-[#d7d7d5] transition-colors"
                         >
-                            Access Dashboard
+                            Go to Dashboard
                             <ArrowRight className="h-5 w-5" />
                         </Link>
                     </div>

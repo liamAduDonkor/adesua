@@ -1,4 +1,4 @@
-import { dashboard, login, register } from '@/routes';
+import { dashboard, login } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { 
@@ -103,21 +103,13 @@ export default function Welcome() {
                                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             ) : (
-                                <>
-                                    <Link
-                                        href={login()}
-                                        className="group inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#00A651] to-[#0066CC] hover:from-[#008A42] hover:to-[#0052A3] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-                                    >
-                                        Log in
-                                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                    <Link
-                                        href={register()}
-                                        className="group inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-[#1a1a1a] bg-white/90 dark:bg-[#1a1a1a]/90 backdrop-blur-sm border-2 border-[#00A651] hover:bg-[#00A651] hover:text-white dark:text-[#EDEDEC] dark:border-[#00A651] dark:hover:bg-[#00A651] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-                                    >
-                                        Get Started
-                                    </Link>
-                                </>
+                                <Link
+                                    href={login()}
+                                    className="group inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#00A651] to-[#0066CC] hover:from-[#008A42] hover:to-[#0052A3] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                                >
+                                    Log in
+                                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                </Link>
                             )}
                         </div>
                     </div>
@@ -272,35 +264,21 @@ export default function Welcome() {
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/5"></div>
                     </div>
                     <div className="relative max-w-4xl mx-auto text-center px-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-8">
-                            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                            <span className="text-sm font-medium text-white">Get Started Today</span>
-                        </div>
                         <h2 className="text-4xl font-bold text-white mb-6 lg:text-5xl">
-                            Ready to Transform Education Management?
+                            Transforming Education Management in Ghana
                         </h2>
                         <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-                            Join thousands of educators already using Adesua to streamline their operations and improve student outcomes.
+                            Adesua connects thousands of educators, streamlining operations and improving student outcomes nationwide.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            {!auth?.user && (
-                                <>
-                                    <Link
-                                        href={register()}
-                                        className="group inline-flex items-center gap-3 rounded-xl px-10 py-5 text-lg font-bold text-[#00A651] bg-white hover:bg-white/90 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300"
-                                    >
-                                        Start Your Journey
-                                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                    </Link>
-                                    <Link
-                                        href={login()}
-                                        className="group inline-flex items-center gap-3 rounded-xl px-10 py-5 text-lg font-bold text-white bg-white/20 backdrop-blur-sm border-2 border-white/30 hover:bg-white/30 hover:border-white/50 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
-                                    >
-                                        Sign In
-                                    </Link>
-                                </>
-                            )}
-                        </div>
+                        {!auth?.user && (
+                            <Link
+                                href={login()}
+                                className="group inline-flex items-center gap-3 rounded-xl px-10 py-5 text-lg font-bold text-[#00A651] bg-white hover:bg-white/90 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300"
+                            >
+                                Sign In
+                                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        )}
                     </div>
                 </div>
 
