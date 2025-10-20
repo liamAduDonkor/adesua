@@ -1,0 +1,221 @@
+@import 'tailwindcss';
+
+@import "tw-animate-css";
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --background: oklch(0.99 0 0);
+    --foreground: oklch(0.15 0 0);
+    --card: oklch(0.98 0 0);
+    --card-foreground: oklch(0.15 0 0);
+    --popover: oklch(0.98 0 0);
+    --popover-foreground: oklch(0.15 0 0);
+    --primary: oklch(0.45 0.15 142); /* Ghana Green */
+    --primary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.95 0.02 142);
+    --secondary-foreground: oklch(0.15 0 0);
+    --muted: oklch(0.95 0.02 142);
+    --muted-foreground: oklch(0.5 0 0);
+    --accent: oklch(0.95 0.02 142);
+    --accent-foreground: oklch(0.15 0 0);
+    --destructive: oklch(0.6 0.2 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.9 0.02 142);
+    --input: oklch(0.9 0.02 142);
+    --ring: oklch(0.45 0.15 142);
+    --chart-1: oklch(0.45 0.15 142); /* Ghana Green */
+    --chart-2: oklch(0.6 0.15 200); /* Ghana Blue */
+    --chart-3: oklch(0.7 0.15 50); /* Ghana Gold */
+    --chart-4: oklch(0.6 0.2 25); /* Ghana Red */
+    --chart-5: oklch(0.5 0.1 300); /* Purple accent */
+    --radius: 0.75rem;
+    --sidebar: oklch(0.98 0.02 142);
+    --sidebar-foreground: oklch(0.15 0 0);
+    --sidebar-primary: oklch(0.45 0.15 142);
+    --sidebar-primary-foreground: oklch(0.98 0 0);
+    --sidebar-accent: oklch(0.95 0.02 142);
+    --sidebar-accent-foreground: oklch(0.15 0 0);
+    --sidebar-border: oklch(0.9 0.02 142);
+    --sidebar-ring: oklch(0.45 0.15 142);
+}
+
+.dark {
+    --background: oklch(0.08 0 0);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.1 0 0);
+    --card-foreground: oklch(0.98 0 0);
+    --popover: oklch(0.1 0 0);
+    --popover-foreground: oklch(0.98 0 0);
+    --primary: oklch(0.6 0.15 142); /* Brighter Ghana Green for dark mode */
+    --primary-foreground: oklch(0.08 0 0);
+    --secondary: oklch(0.15 0.02 142);
+    --secondary-foreground: oklch(0.98 0 0);
+    --muted: oklch(0.15 0.02 142);
+    --muted-foreground: oklch(0.7 0 0);
+    --accent: oklch(0.15 0.02 142);
+    --accent-foreground: oklch(0.98 0 0);
+    --destructive: oklch(0.5 0.2 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.2 0.02 142);
+    --input: oklch(0.2 0.02 142);
+    --ring: oklch(0.6 0.15 142);
+    --chart-1: oklch(0.6 0.15 142); /* Ghana Green */
+    --chart-2: oklch(0.7 0.15 200); /* Ghana Blue */
+    --chart-3: oklch(0.8 0.15 50); /* Ghana Gold */
+    --chart-4: oklch(0.7 0.2 25); /* Ghana Red */
+    --chart-5: oklch(0.6 0.1 300); /* Purple accent */
+    --sidebar: oklch(0.1 0.02 142);
+    --sidebar-foreground: oklch(0.98 0 0);
+    --sidebar-primary: oklch(0.6 0.15 142);
+    --sidebar-primary-foreground: oklch(0.08 0 0);
+    --sidebar-accent: oklch(0.15 0.02 142);
+    --sidebar-accent-foreground: oklch(0.98 0 0);
+    --sidebar-border: oklch(0.2 0.02 142);
+    --sidebar-ring: oklch(0.6 0.15 142);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer utilities {
+    /* Custom animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(0, 166, 81, 0.3); }
+        50% { box-shadow: 0 0 30px rgba(0, 166, 81, 0.6); }
+    }
+    
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+    
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-glow {
+        animation: glow 2s ease-in-out infinite;
+    }
+    
+    .animate-shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 2s infinite;
+    }
+    
+    /* Custom scrollbar */
+    .scrollbar-thin {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 166, 81, 0.3) transparent;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: rgba(0, 166, 81, 0.3);
+        border-radius: 3px;
+    }
+    
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 166, 81, 0.5);
+    }
+    
+    /* Glass morphism effect */
+    .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .glass-dark {
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Gradient text */
+    .gradient-text {
+        background: linear-gradient(135deg, #00A651, #0066CC, #FFD700);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+}

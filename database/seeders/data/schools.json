@@ -1,0 +1,770 @@
+[
+  {
+    "name": "Accra Model School",
+    "code": "SCH-001",
+    "address": "123 Independence Ave",
+    "city": "Accra",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0001"
+  },
+  {
+    "name": "Tema Community School",
+    "code": "SCH-002",
+    "address": "456 Community Road",
+    "city": "Tema",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0002"
+  },
+  {
+    "name": "Madina Islamic School",
+    "code": "SCH-003",
+    "address": "789 Islamic Street",
+    "city": "Madina",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0003"
+  },
+  {
+    "name": "Labadi Secondary School",
+    "code": "SCH-004",
+    "address": "321 Labadi Road",
+    "city": "Labadi",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0004"
+  },
+  {
+    "name": "Adenta Methodist School",
+    "code": "SCH-005",
+    "address": "654 Methodist Close",
+    "city": "Adenta",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0005"
+  },
+  {
+    "name": "Kasoa Central School",
+    "code": "SCH-006",
+    "address": "987 Central Avenue",
+    "city": "Kasoa",
+    "region": "Greater Accra",
+    "phone": "+233 20 000 0006"
+  },
+  {
+    "name": "Kumasi Academy",
+    "code": "SCH-007",
+    "address": "123 Academy Street",
+    "city": "Kumasi",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0007"
+  },
+  {
+    "name": "Obuasi Secondary School",
+    "code": "SCH-008",
+    "address": "456 Mining Road",
+    "city": "Obuasi",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0008"
+  },
+  {
+    "name": "Ejisu Methodist School",
+    "code": "SCH-009",
+    "address": "789 Methodist Street",
+    "city": "Ejisu",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0009"
+  },
+  {
+    "name": "Konongo Secondary School",
+    "code": "SCH-010",
+    "address": "321 Konongo Road",
+    "city": "Konongo",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0010"
+  },
+  {
+    "name": "Mampong Technical School",
+    "code": "SCH-011",
+    "address": "654 Technical Avenue",
+    "city": "Mampong",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0011"
+  },
+  {
+    "name": "Offinso Secondary School",
+    "code": "SCH-012",
+    "address": "987 Offinso Street",
+    "city": "Offinso",
+    "region": "Ashanti",
+    "phone": "+233 20 000 0012"
+  },
+  {
+    "name": "Tamale Senior High School",
+    "code": "SCH-013",
+    "address": "123 Senior High Road",
+    "city": "Tamale",
+    "region": "Northern",
+    "phone": "+233 20 000 0013"
+  },
+  {
+    "name": "Yendi Secondary School",
+    "code": "SCH-014",
+    "address": "456 Yendi Street",
+    "city": "Yendi",
+    "region": "Northern",
+    "phone": "+233 20 000 0014"
+  },
+  {
+    "name": "Savelugu Community School",
+    "code": "SCH-015",
+    "address": "789 Community Road",
+    "city": "Savelugu",
+    "region": "Northern",
+    "phone": "+233 20 000 0015"
+  },
+  {
+    "name": "Tolon Secondary School",
+    "code": "SCH-016",
+    "address": "321 Tolon Avenue",
+    "city": "Tolon",
+    "region": "Northern",
+    "phone": "+233 20 000 0016"
+  },
+  {
+    "name": "Kumbungu Technical School",
+    "code": "SCH-017",
+    "address": "654 Technical Street",
+    "city": "Kumbungu",
+    "region": "Northern",
+    "phone": "+233 20 000 0017"
+  },
+  {
+    "name": "Gushiegu Secondary School",
+    "code": "SCH-018",
+    "address": "987 Gushiegu Road",
+    "city": "Gushiegu",
+    "region": "Northern",
+    "phone": "+233 20 000 0018"
+  },
+  {
+    "name": "Takoradi Technical Institute",
+    "code": "SCH-019",
+    "address": "123 Technical Road",
+    "city": "Takoradi",
+    "region": "Western",
+    "phone": "+233 20 000 0019"
+  },
+  {
+    "name": "Sekondi Secondary School",
+    "code": "SCH-020",
+    "address": "456 Sekondi Street",
+    "city": "Sekondi",
+    "region": "Western",
+    "phone": "+233 20 000 0020"
+  },
+  {
+    "name": "Tarkwa Secondary School",
+    "code": "SCH-021",
+    "address": "789 Tarkwa Avenue",
+    "city": "Tarkwa",
+    "region": "Western",
+    "phone": "+233 20 000 0021"
+  },
+  {
+    "name": "Prestea Community School",
+    "code": "SCH-022",
+    "address": "321 Community Road",
+    "city": "Prestea",
+    "region": "Western",
+    "phone": "+233 20 000 0022"
+  },
+  {
+    "name": "Bogoso Secondary School",
+    "code": "SCH-023",
+    "address": "654 Bogoso Street",
+    "city": "Bogoso",
+    "region": "Western",
+    "phone": "+233 20 000 0023"
+  },
+  {
+    "name": "Axim Secondary School",
+    "code": "SCH-024",
+    "address": "987 Axim Road",
+    "city": "Axim",
+    "region": "Western",
+    "phone": "+233 20 000 0024"
+  },
+  {
+    "name": "Cape Coast Secondary School",
+    "code": "SCH-025",
+    "address": "123 Coast Road",
+    "city": "Cape Coast",
+    "region": "Central",
+    "phone": "+233 20 000 0025"
+  },
+  {
+    "name": "Saltpond Secondary School",
+    "code": "SCH-026",
+    "address": "456 Saltpond Street",
+    "city": "Saltpond",
+    "region": "Central",
+    "phone": "+233 20 000 0026"
+  },
+  {
+    "name": "Winneba Secondary School",
+    "code": "SCH-027",
+    "address": "789 Winneba Avenue",
+    "city": "Winneba",
+    "region": "Central",
+    "phone": "+233 20 000 0027"
+  },
+  {
+    "name": "Kasoa Secondary School",
+    "code": "SCH-028",
+    "address": "321 Kasoa Road",
+    "city": "Kasoa",
+    "region": "Central",
+    "phone": "+233 20 000 0028"
+  },
+  {
+    "name": "Agona Swedru Secondary School",
+    "code": "SCH-029",
+    "address": "654 Swedru Street",
+    "city": "Agona Swedru",
+    "region": "Central",
+    "phone": "+233 20 000 0029"
+  },
+  {
+    "name": "Mankessim Secondary School",
+    "code": "SCH-030",
+    "address": "987 Mankessim Road",
+    "city": "Mankessim",
+    "region": "Central",
+    "phone": "+233 20 000 0030"
+  },
+  {
+    "name": "Koforidua Secondary School",
+    "code": "SCH-031",
+    "address": "123 Koforidua Street",
+    "city": "Koforidua",
+    "region": "Eastern",
+    "phone": "+233 20 000 0031"
+  },
+  {
+    "name": "Akosombo Secondary School",
+    "code": "SCH-032",
+    "address": "456 Akosombo Road",
+    "city": "Akosombo",
+    "region": "Eastern",
+    "phone": "+233 20 000 0032"
+  },
+  {
+    "name": "Nkawkaw Secondary School",
+    "code": "SCH-033",
+    "address": "789 Nkawkaw Avenue",
+    "city": "Nkawkaw",
+    "region": "Eastern",
+    "phone": "+233 20 000 0033"
+  },
+  {
+    "name": "Begoro Secondary School",
+    "code": "SCH-034",
+    "address": "321 Begoro Street",
+    "city": "Begoro",
+    "region": "Eastern",
+    "phone": "+233 20 000 0034"
+  },
+  {
+    "name": "Mpraeso Secondary School",
+    "code": "SCH-035",
+    "address": "654 Mpraeso Road",
+    "city": "Mpraeso",
+    "region": "Eastern",
+    "phone": "+233 20 000 0035"
+  },
+  {
+    "name": "Aburi Secondary School",
+    "code": "SCH-036",
+    "address": "987 Aburi Street",
+    "city": "Aburi",
+    "region": "Eastern",
+    "phone": "+233 20 000 0036"
+  },
+  {
+    "name": "Ho Secondary School",
+    "code": "SCH-037",
+    "address": "123 Ho Road",
+    "city": "Ho",
+    "region": "Volta",
+    "phone": "+233 20 000 0037"
+  },
+  {
+    "name": "Keta Secondary School",
+    "code": "SCH-038",
+    "address": "456 Keta Street",
+    "city": "Keta",
+    "region": "Volta",
+    "phone": "+233 20 000 0038"
+  },
+  {
+    "name": "Hohoe Secondary School",
+    "code": "SCH-039",
+    "address": "789 Hohoe Avenue",
+    "city": "Hohoe",
+    "region": "Volta",
+    "phone": "+233 20 000 0039"
+  },
+  {
+    "name": "Kpando Secondary School",
+    "code": "SCH-040",
+    "address": "321 Kpando Road",
+    "city": "Kpando",
+    "region": "Volta",
+    "phone": "+233 20 000 0040"
+  },
+  {
+    "name": "Anloga Secondary School",
+    "code": "SCH-041",
+    "address": "654 Anloga Street",
+    "city": "Anloga",
+    "region": "Volta",
+    "phone": "+233 20 000 0041"
+  },
+  {
+    "name": "Sogakope Secondary School",
+    "code": "SCH-042",
+    "address": "987 Sogakope Road",
+    "city": "Sogakope",
+    "region": "Volta",
+    "phone": "+233 20 000 0042"
+  },
+  {
+    "name": "Sunyani Secondary School",
+    "code": "SCH-043",
+    "address": "123 Sunyani Street",
+    "city": "Sunyani",
+    "region": "Bono",
+    "phone": "+233 20 000 0043"
+  },
+  {
+    "name": "Techiman Secondary School",
+    "code": "SCH-044",
+    "address": "456 Techiman Road",
+    "city": "Techiman",
+    "region": "Bono East",
+    "phone": "+233 20 000 0044"
+  },
+  {
+    "name": "Berekum Secondary School",
+    "code": "SCH-045",
+    "address": "789 Berekum Avenue",
+    "city": "Berekum",
+    "region": "Bono",
+    "phone": "+233 20 000 0045"
+  },
+  {
+    "name": "Dormaa Secondary School",
+    "code": "SCH-046",
+    "address": "321 Dormaa Street",
+    "city": "Dormaa",
+    "region": "Bono",
+    "phone": "+233 20 000 0046"
+  },
+  {
+    "name": "Wenchi Secondary School",
+    "code": "SCH-047",
+    "address": "654 Wenchi Road",
+    "city": "Wenchi",
+    "region": "Bono",
+    "phone": "+233 20 000 0047"
+  },
+  {
+    "name": "Jaman North Secondary School",
+    "code": "SCH-048",
+    "address": "987 Jaman Street",
+    "city": "Sampa",
+    "region": "Bono",
+    "phone": "+233 20 000 0048"
+  },
+  {
+    "name": "Kintampo Secondary School",
+    "code": "SCH-049",
+    "address": "123 Kintampo Road",
+    "city": "Kintampo",
+    "region": "Bono East",
+    "phone": "+233 20 000 0049"
+  },
+  {
+    "name": "Atebubu Secondary School",
+    "code": "SCH-050",
+    "address": "456 Atebubu Street",
+    "city": "Atebubu",
+    "region": "Bono East",
+    "phone": "+233 20 000 0050"
+  },
+  {
+    "name": "Nkoranza Secondary School",
+    "code": "SCH-051",
+    "address": "789 Nkoranza Avenue",
+    "city": "Nkoranza",
+    "region": "Bono East",
+    "phone": "+233 20 000 0051"
+  },
+  {
+    "name": "Prang Secondary School",
+    "code": "SCH-052",
+    "address": "321 Prang Road",
+    "city": "Prang",
+    "region": "Bono East",
+    "phone": "+233 20 000 0052"
+  },
+  {
+    "name": "Yeji Secondary School",
+    "code": "SCH-053",
+    "address": "654 Yeji Street",
+    "city": "Yeji",
+    "region": "Bono East",
+    "phone": "+233 20 000 0053"
+  },
+  {
+    "name": "Sene East Secondary School",
+    "code": "SCH-054",
+    "address": "987 Sene Road",
+    "city": "Kwame Danso",
+    "region": "Bono East",
+    "phone": "+233 20 000 0054"
+  },
+  {
+    "name": "Wa Secondary School",
+    "code": "SCH-055",
+    "address": "123 Wa Street",
+    "city": "Wa",
+    "region": "Upper West",
+    "phone": "+233 20 000 0055"
+  },
+  {
+    "name": "Jirapa Secondary School",
+    "code": "SCH-056",
+    "address": "456 Jirapa Road",
+    "city": "Jirapa",
+    "region": "Upper West",
+    "phone": "+233 20 000 0056"
+  },
+  {
+    "name": "Lawra Secondary School",
+    "code": "SCH-057",
+    "address": "789 Lawra Avenue",
+    "city": "Lawra",
+    "region": "Upper West",
+    "phone": "+233 20 000 0057"
+  },
+  {
+    "name": "Nandom Secondary School",
+    "code": "SCH-058",
+    "address": "321 Nandom Street",
+    "city": "Nandom",
+    "region": "Upper West",
+    "phone": "+233 20 000 0058"
+  },
+  {
+    "name": "Sissala East Secondary School",
+    "code": "SCH-059",
+    "address": "654 Sissala Road",
+    "city": "Tumu",
+    "region": "Upper West",
+    "phone": "+233 20 000 0059"
+  },
+  {
+    "name": "Sissala West Secondary School",
+    "code": "SCH-060",
+    "address": "987 Sissala Street",
+    "city": "Gwollu",
+    "region": "Upper West",
+    "phone": "+233 20 000 0060"
+  },
+  {
+    "name": "Bolgatanga Secondary School",
+    "code": "SCH-061",
+    "address": "123 Bolgatanga Road",
+    "city": "Bolgatanga",
+    "region": "Upper East",
+    "phone": "+233 20 000 0061"
+  },
+  {
+    "name": "Navrongo Secondary School",
+    "code": "SCH-062",
+    "address": "456 Navrongo Street",
+    "city": "Navrongo",
+    "region": "Upper East",
+    "phone": "+233 20 000 0062"
+  },
+  {
+    "name": "Bawku Secondary School",
+    "code": "SCH-063",
+    "address": "789 Bawku Avenue",
+    "city": "Bawku",
+    "region": "Upper East",
+    "phone": "+233 20 000 0063"
+  },
+  {
+    "name": "Paga Secondary School",
+    "code": "SCH-064",
+    "address": "321 Paga Road",
+    "city": "Paga",
+    "region": "Upper East",
+    "phone": "+233 20 000 0064"
+  },
+  {
+    "name": "Zebilla Secondary School",
+    "code": "SCH-065",
+    "address": "654 Zebilla Street",
+    "city": "Zebilla",
+    "region": "Upper East",
+    "phone": "+233 20 000 0065"
+  },
+  {
+    "name": "Sandema Secondary School",
+    "code": "SCH-066",
+    "address": "987 Sandema Road",
+    "city": "Sandema",
+    "region": "Upper East",
+    "phone": "+233 20 000 0066"
+  },
+  {
+    "name": "Damongo Secondary School",
+    "code": "SCH-067",
+    "address": "123 Damongo Street",
+    "city": "Damongo",
+    "region": "Savannah",
+    "phone": "+233 20 000 0067"
+  },
+  {
+    "name": "Bole Secondary School",
+    "code": "SCH-068",
+    "address": "456 Bole Road",
+    "city": "Bole",
+    "region": "Savannah",
+    "phone": "+233 20 000 0068"
+  },
+  {
+    "name": "Salaga Secondary School",
+    "code": "SCH-069",
+    "address": "789 Salaga Avenue",
+    "city": "Salaga",
+    "region": "Savannah",
+    "phone": "+233 20 000 0069"
+  },
+  {
+    "name": "Sawla Secondary School",
+    "code": "SCH-070",
+    "address": "321 Sawla Street",
+    "city": "Sawla",
+    "region": "Savannah",
+    "phone": "+233 20 000 0070"
+  },
+  {
+    "name": "West Gonja Secondary School",
+    "code": "SCH-071",
+    "address": "654 Gonja Road",
+    "city": "Daboya",
+    "region": "Savannah",
+    "phone": "+233 20 000 0071"
+  },
+  {
+    "name": "North Gonja Secondary School",
+    "code": "SCH-072",
+    "address": "987 Gonja Street",
+    "city": "Buipe",
+    "region": "Savannah",
+    "phone": "+233 20 000 0072"
+  },
+  {
+    "name": "Goaso Secondary School",
+    "code": "SCH-073",
+    "address": "123 Goaso Road",
+    "city": "Goaso",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0073"
+  },
+  {
+    "name": "Bechem Secondary School",
+    "code": "SCH-074",
+    "address": "456 Bechem Street",
+    "city": "Bechem",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0074"
+  },
+  {
+    "name": "Hwidiem Secondary School",
+    "code": "SCH-075",
+    "address": "789 Hwidiem Avenue",
+    "city": "Hwidiem",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0075"
+  },
+  {
+    "name": "Kenyasi Secondary School",
+    "code": "SCH-076",
+    "address": "321 Kenyasi Road",
+    "city": "Kenyasi",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0076"
+  },
+  {
+    "name": "Duayaw Nkwanta Secondary School",
+    "code": "SCH-077",
+    "address": "654 Duayaw Street",
+    "city": "Duayaw Nkwanta",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0077"
+  },
+  {
+    "name": "Tepa Secondary School",
+    "code": "SCH-078",
+    "address": "987 Tepa Road",
+    "city": "Tepa",
+    "region": "Ahafo",
+    "phone": "+233 20 000 0078"
+  },
+  {
+    "name": "Sefwi Wiawso Secondary School",
+    "code": "SCH-079",
+    "address": "123 Sefwi Street",
+    "city": "Sefwi Wiawso",
+    "region": "Western North",
+    "phone": "+233 20 000 0079"
+  },
+  {
+    "name": "Bibiani Secondary School",
+    "code": "SCH-080",
+    "address": "456 Bibiani Road",
+    "city": "Bibiani",
+    "region": "Western North",
+    "phone": "+233 20 000 0080"
+  },
+  {
+    "name": "Juaboso Secondary School",
+    "code": "SCH-081",
+    "address": "789 Juaboso Avenue",
+    "city": "Juaboso",
+    "region": "Western North",
+    "phone": "+233 20 000 0081"
+  },
+  {
+    "name": "Bodi Secondary School",
+    "code": "SCH-082",
+    "address": "321 Bodi Street",
+    "city": "Bodi",
+    "region": "Western North",
+    "phone": "+233 20 000 0082"
+  },
+  {
+    "name": "Akontombra Secondary School",
+    "code": "SCH-083",
+    "address": "654 Akontombra Road",
+    "city": "Akontombra",
+    "region": "Western North",
+    "phone": "+233 20 000 0083"
+  },
+  {
+    "name": "Sefwi Akontombra Secondary School",
+    "code": "SCH-084",
+    "address": "987 Sefwi Road",
+    "city": "Sefwi Akontombra",
+    "region": "Western North",
+    "phone": "+233 20 000 0084"
+  },
+  {
+    "name": "Oti Secondary School",
+    "code": "SCH-085",
+    "address": "123 Oti Street",
+    "city": "Dambai",
+    "region": "Oti",
+    "phone": "+233 20 000 0085"
+  },
+  {
+    "name": "Kete Krachi Secondary School",
+    "code": "SCH-086",
+    "address": "456 Krachi Road",
+    "city": "Kete Krachi",
+    "region": "Oti",
+    "phone": "+233 20 000 0086"
+  },
+  {
+    "name": "Nkwanta South Secondary School",
+    "code": "SCH-087",
+    "address": "789 Nkwanta Avenue",
+    "city": "Nkwanta",
+    "region": "Oti",
+    "phone": "+233 20 000 0087"
+  },
+  {
+    "name": "Jasikan Secondary School",
+    "code": "SCH-088",
+    "address": "321 Jasikan Street",
+    "city": "Jasikan",
+    "region": "Oti",
+    "phone": "+233 20 000 0088"
+  },
+  {
+    "name": "Kadjebi Secondary School",
+    "code": "SCH-089",
+    "address": "654 Kadjebi Road",
+    "city": "Kadjebi",
+    "region": "Oti",
+    "phone": "+233 20 000 0089"
+  },
+  {
+    "name": "Biakoye Secondary School",
+    "code": "SCH-090",
+    "address": "987 Biakoye Street",
+    "city": "Nkonya",
+    "region": "Oti",
+    "phone": "+233 20 000 0090"
+  },
+  {
+    "name": "North East Secondary School",
+    "code": "SCH-091",
+    "address": "123 North East Road",
+    "city": "Nalerigu",
+    "region": "North East",
+    "phone": "+233 20 000 0091"
+  },
+  {
+    "name": "West Mamprusi Secondary School",
+    "code": "SCH-092",
+    "address": "456 Mamprusi Street",
+    "city": "Walewale",
+    "region": "North East",
+    "phone": "+233 20 000 0092"
+  },
+  {
+    "name": "East Mamprusi Secondary School",
+    "code": "SCH-093",
+    "address": "789 Mamprusi Avenue",
+    "city": "Gambaga",
+    "region": "North East",
+    "phone": "+233 20 000 0093"
+  },
+  {
+    "name": "Bunkpurugu Secondary School",
+    "code": "SCH-094",
+    "address": "321 Bunkpurugu Street",
+    "city": "Bunkpurugu",
+    "region": "North East",
+    "phone": "+233 20 000 0094"
+  },
+  {
+    "name": "Yunyoo Secondary School",
+    "code": "SCH-095",
+    "address": "654 Yunyoo Road",
+    "city": "Yunyoo",
+    "region": "North East",
+    "phone": "+233 20 000 0095"
+  },
+  {
+    "name": "Chereponi Secondary School",
+    "code": "SCH-096",
+    "address": "987 Chereponi Street",
+    "city": "Chereponi",
+    "region": "North East",
+    "phone": "+233 20 000 0096"
+  }
+]

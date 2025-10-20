@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Administrator",
+    "slug": "admin",
+    "description": "System administrator with full access to all features and data",
+    "permissions": [
+      "manage_users",
+      "manage_schools",
+      "manage_roles",
+      "view_all_reports",
+      "system_settings",
+      "audit_logs"
+    ],
+    "dashboard_route": "/admin",
+    "color": "#dc2626"
+  },
+  {
+    "name": "Teacher",
+    "slug": "teacher",
+    "description": "Educational staff responsible for teaching and student management",
+    "permissions": [
+      "manage_students",
+      "record_attendance",
+      "grade_assignments",
+      "view_class_reports",
+      "disciplinary_actions"
+    ],
+    "dashboard_route": "/teacher",
+    "color": "#2563eb"
+  },
+  {
+    "name": "Student",
+    "slug": "student",
+    "description": "Primary user accessing educational content and services",
+    "permissions": [
+      "view_profile",
+      "view_attendance",
+      "view_grades",
+      "access_wallet",
+      "view_reports"
+    ],
+    "dashboard_route": "/student",
+    "color": "#16a34a"
+  },
+  {
+    "name": "Parent/Guardian",
+    "slug": "parent",
+    "description": "Parent or guardian with oversight of student activities",
+    "permissions": [
+      "view_child_profile",
+      "view_child_attendance",
+      "view_child_grades",
+      "manage_wallet",
+      "approve_transactions",
+      "receive_notifications"
+    ],
+    "dashboard_route": "/parent",
+    "color": "#7c3aed"
+  },
+  {
+    "name": "School Management",
+    "slug": "school",
+    "description": "School administrators managing institutional operations",
+    "permissions": [
+      "manage_school_staff",
+      "manage_school_students",
+      "view_school_reports",
+      "manage_budget",
+      "compliance_reporting"
+    ],
+    "dashboard_route": "/school",
+    "color": "#ea580c"
+  },
+  {
+    "name": "Vendor",
+    "slug": "vendor",
+    "description": "External service providers and merchants",
+    "permissions": [
+      "manage_products",
+      "view_sales",
+      "process_payments",
+      "view_analytics"
+    ],
+    "dashboard_route": "/vendor",
+    "color": "#0891b2"
+  }
+]

@@ -1,0 +1,108 @@
+# Laravel & PHP
+/.phpunit.cache
+/bootstrap/ssr
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+/auth.json
+*.log
+php_errors.log
+
+# Node & NPM
+/node_modules
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnpm-debug.log*
+.npm
+.yarn-integrity
+
+# Build & Generated Files
+/public/build
+/public/hot
+/public/mix-manifest.json
+/bootstrap/ssr
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
+
+# IDEs & Editors
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing & Coverage
+/coverage
+/.nyc_output
+/tests/coverage
+*.coverage
+.phpunit.result.cache
+
+# Database
+*.sqlite
+*.sqlite-journal
+*.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/storage/logs/*.log
+
+# Temporary Files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Compiled Assets
+*.css.map
+*.js.map
+
+# Security & Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+auth.json
+cookies.txt
+
+# Misc
+*.bak
+*.old
+*.orig
