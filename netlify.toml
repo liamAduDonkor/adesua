@@ -1,0 +1,25 @@
+# ⚠️ WARNING: This configuration will NOT work for ADESUA
+# 
+# ADESUA is a Laravel full-stack application that requires PHP backend.
+# Netlify only supports static sites and serverless functions.
+# 
+# Please use one of these platforms instead:
+# - Laravel Forge (recommended)
+# - Laravel Vapor
+# - DigitalOcean App Platform
+# - Heroku
+# - Traditional VPS
+#
+# See DEPLOYMENT_GUIDE.md for detailed instructions.
+
+[build]
+  command = "echo 'ERROR: ADESUA cannot be deployed to Netlify. See DEPLOYMENT_GUIDE.md' && exit 1"
+  publish = "public/build"
+
+[build.environment]
+  PHP_VERSION = "8.2"
+  NODE_VERSION = "20"
+
+# This file is here only to prevent confusion.
+# Remove this file and deploy to a PHP-compatible platform.
+

@@ -102,6 +102,12 @@ yarn-error.log*
 auth.json
 cookies.txt
 
+# Deployment
+.do/deploy.template.yaml
+.forge/
+.vapor/
+heroku.yml
+
 # Misc
 *.bak
 *.old
