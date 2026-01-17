@@ -1,56 +1,66 @@
-#### Build frontend assets
-FROM node:20-bullseye AS node-build
+# Stage 1: Build frontend assets
+FROM node:20-slim AS node-build
 WORKDIR /app
-
-# Install JS dependencies and build Vite assets
 COPY package*.json ./
-COPY tsconfig.json vite.config.ts ./
-COPY resources ./resources
-RUN npm ci --include=dev
+RUN npm ci
+COPY . .
 RUN npm run build
 
-
-#### Install PHP dependencies
+# Stage 2: Install PHP dependencies
 FROM composer:2 AS vendor
 WORKDIR /app
-
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
+# Stage 3: Runtime
+FROM dunglas/frankenphp:1-php8.2 AS runtime
 
-#### Runtime
-FROM php:8.2-cli-bullseye AS runtime
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    unzip \
+    libzip-dev \
+    libpq-dev \
+    libicu-dev \
+    libpng-dev \
+    && docker-php-ext-install \
+    pdo_mysql \
+    pdo_pgsql \
+    zip \
+    intl \
+    gd \
+    opcache \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
 WORKDIR /var/www/html
 
-# System packages & PHP extensions needed by Laravel
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        git \
-        unzip \
-        libzip-dev \
-        libpq-dev \
-    && docker-php-ext-install pdo_mysql pdo_pgsql pdo_sqlite zip \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy app source (without vendor/node_modules due to .dockerignore)
+# Copy application source
 COPY . .
 
-# Bring in production dependencies and compiled assets
+# Copy vendor and built assets from previous stages
 COPY --from=vendor /app/vendor ./vendor
-COPY --from=vendor /app/composer.lock ./composer.lock
-COPY --from=vendor /app/composer.json ./composer.json
 COPY --from=node-build /app/public/build ./public/build
 
-# Ensure writable dirs for caches/sessions
+# Setup storage and cache directories
 RUN mkdir -p storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
+    && chmod -R 775 storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache
 
+# Set environment variables
 ENV APP_ENV=production \
     APP_DEBUG=false \
-    PORT=8080
+    ENTRYPOINT_COMMAND="php artisan migrate --force"
 
+# Copy entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Use the entrypoint script
+ENTRYPOINT ["entrypoint.sh"]
+
+# Expose the port (Render uses 8080 or PORT env var)
 EXPOSE 8080
 
-# Cache config/routes/views on boot and serve the app
-CMD ["sh", "-c", "php artisan storage:link --force >/dev/null 2>&1 || true && php artisan config:cache && php artisan route:cache && php artisan view:cache && php -d variables_order=EGPCS artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
-
+# Start FrankenPHP
+CMD ["frankenphp", "php-server", "--port", "8080"]
