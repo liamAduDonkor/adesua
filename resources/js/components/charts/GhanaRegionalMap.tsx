@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { School, Users, GraduationCap } from 'lucide-react';
+import { School, Users, GraduationCap, MapPin } from 'lucide-react';
 
 type RegionData = {
     region: string;
@@ -18,87 +18,92 @@ type GhanaRegionalMapProps = {
     };
 };
 
-// Ghana regions with approximate SVG path coordinates
-const GHANA_REGIONS: Record<string, { path: string; labelX: number; labelY: number }> = {
-    'Greater Accra': {
-        path: 'M 420 380 L 450 380 L 460 400 L 450 420 L 420 420 Z',
-        labelX: 435,
-        labelY: 400
-    },
-    'Ashanti': {
-        path: 'M 340 300 L 380 290 L 400 320 L 390 360 L 360 370 L 330 340 Z',
-        labelX: 365,
-        labelY: 330
-    },
-    'Northern': {
-        path: 'M 300 80 L 380 70 L 400 120 L 390 180 L 360 200 L 320 190 L 280 150 Z',
-        labelX: 340,
-        labelY: 140
-    },
-    'Western': {
-        path: 'M 240 320 L 300 310 L 320 350 L 310 400 L 270 420 L 220 380 Z',
-        labelX: 270,
-        labelY: 360
-    },
-    'Central': {
-        path: 'M 320 350 L 360 340 L 380 370 L 370 400 L 340 410 L 310 390 Z',
-        labelX: 345,
-        labelY: 375
-    },
-    'Eastern': {
-        path: 'M 380 320 L 420 310 L 440 340 L 430 370 L 400 380 L 370 360 Z',
-        labelX: 405,
-        labelY: 345
-    },
-    'Volta': {
-        path: 'M 440 300 L 480 300 L 490 340 L 480 380 L 450 380 L 430 350 Z',
-        labelX: 460,
-        labelY: 340
-    },
-    'Bono': {
-        path: 'M 260 230 L 310 220 L 330 260 L 320 290 L 280 300 L 250 270 Z',
-        labelX: 290,
-        labelY: 260
-    },
-    'Bono East': {
-        path: 'M 310 220 L 360 210 L 380 250 L 370 280 L 330 290 L 310 260 Z',
-        labelX: 345,
-        labelY: 250
-    },
-    'Upper West': {
-        path: 'M 200 40 L 260 30 L 280 80 L 270 120 L 230 130 L 190 90 Z',
-        labelX: 240,
-        labelY: 80
-    },
+// Ghana regions with accurate clickable areas based on the actual map
+// Coordinates are percentages (0-100) relative to the image dimensions
+const GHANA_REGIONS: Record<string, { 
+    polygon: string; // SVG polygon points in percentage coordinates
+    centerX: number; // Label position X (percentage)
+    centerY: number; // Label position Y (percentage)
+}> = {
     'Upper East': {
-        path: 'M 280 30 L 350 20 L 370 60 L 360 100 L 320 110 L 290 80 Z',
-        labelX: 320,
-        labelY: 65
-    },
-    'Savannah': {
-        path: 'M 260 130 L 320 120 L 340 170 L 330 210 L 290 220 L 250 180 Z',
-        labelX: 295,
-        labelY: 170
-    },
-    'Ahafo': {
-        path: 'M 280 260 L 320 250 L 335 280 L 325 310 L 290 315 L 270 290 Z',
-        labelX: 300,
-        labelY: 285
-    },
-    'Western North': {
-        path: 'M 220 280 L 270 270 L 285 310 L 275 340 L 240 350 L 210 320 Z',
-        labelX: 250,
-        labelY: 310
-    },
-    'Oti': {
-        path: 'M 400 250 L 450 240 L 465 280 L 455 320 L 420 330 L 395 290 Z',
-        labelX: 430,
-        labelY: 285
+        polygon: '70,8 85,10 87,18 82,25 75,23 68,15',
+        centerX: 77,
+        centerY: 17
     },
     'North East': {
-        path: 'M 360 60 L 420 50 L 440 100 L 430 140 L 390 150 L 360 110 Z',
-        labelX: 395,
-        labelY: 100
+        polygon: '62,12 70,8 68,15 75,23 72,28 65,25',
+        centerX: 69,
+        centerY: 19
+    },
+    'Upper West': {
+        polygon: '45,12 58,10 62,12 65,25 60,32 52,30 48,22',
+        centerX: 55,
+        centerY: 20
+    },
+    'Northern': {
+        polygon: '48,22 52,30 60,32 65,25 72,28 75,35 70,45 65,48 58,42 52,38 48,32',
+        centerX: 60,
+        centerY: 35
+    },
+    'Savannah': {
+        polygon: '48,32 52,38 58,42 60,48 55,52 48,48 42,40',
+        centerX: 52,
+        centerY: 43
+    },
+    'Bono East': {
+        polygon: '55,52 60,48 65,48 68,52 65,58 60,58 56,55',
+        centerX: 61,
+        centerY: 53
+    },
+    'Oti': {
+        polygon: '68,52 72,48 78,50 82,58 80,65 75,65 70,60',
+        centerX: 76,
+        centerY: 57
+    },
+    'Bono': {
+        polygon: '48,48 55,52 56,55 52,62 48,60 44,55',
+        centerX: 50,
+        centerY: 55
+    },
+    'Ahafo': {
+        polygon: '52,62 56,55 60,58 58,65 54,67',
+        centerX: 56,
+        centerY: 61
+    },
+    'Ashanti': {
+        polygon: '56,55 60,58 65,58 68,62 70,68 65,72 60,70 56,68 54,67',
+        centerX: 62,
+        centerY: 64
+    },
+    'Eastern': {
+        polygon: '65,58 68,52 70,60 75,65 80,65 82,70 78,75 72,73 68,70 68,62',
+        centerX: 74,
+        centerY: 66
+    },
+    'Volta': {
+        polygon: '80,65 82,70 85,75 85,82 80,82 78,75',
+        centerX: 82,
+        centerY: 74
+    },
+    'Western North': {
+        polygon: '38,62 44,55 48,60 52,62 50,68 45,70 40,68',
+        centerX: 45,
+        centerY: 63
+    },
+    'Western': {
+        polygon: '32,72 38,62 40,68 45,70 48,78 45,85 38,88 32,85 28,78',
+        centerX: 38,
+        centerY: 77
+    },
+    'Central': {
+        polygon: '45,70 50,68 54,67 56,68 60,70 58,78 52,82 48,78',
+        centerX: 53,
+        centerY: 74
+    },
+    'Greater Accra': {
+        polygon: '60,70 65,72 68,70 72,73 70,78 65,80 62,78 58,78',
+        centerX: 65,
+        centerY: 75
     }
 };
 
@@ -146,73 +151,100 @@ export default function GhanaRegionalMap({ regionalData }: GhanaRegionalMapProps
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <School className="h-5 w-5" />
+                            <MapPin className="h-5 w-5" />
                             Ghana Regional Distribution Map
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="relative w-full aspect-square">
+                        <div className="relative w-full aspect-[3/4] max-w-2xl mx-auto">
+                            {/* Base Map Image */}
+                            <img 
+                                src="/ghana-regional-map.png" 
+                                alt="Ghana Regional Map"
+                                className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                            />
+                            
+                            {/* Interactive SVG Overlay */}
                             <svg
-                                viewBox="0 0 500 500"
-                                className="absolute inset-0 w-full h-full border border-gray-200 rounded-lg"
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="xMidYMid meet"
+                                className="absolute inset-0 w-full h-full"
+                                style={{ pointerEvents: 'none' }}
                             >
-                                {/* Background */}
-                                <rect width="500" height="500" fill="#f9fafb" />
-                                
-                                {/* Regions */}
+                                {/* Interactive Regions */}
                                 {Object.entries(GHANA_REGIONS).map(([region, coords]) => {
                                     const isActive = activeRegion === region;
-                                    const color = getRegionColor(region);
+                                    const data = combinedData.find(d => d.region === region);
                                     
                                     return (
                                         <g key={region}>
-                                            <path
-                                                d={coords.path}
-                                                fill={color}
-                                                stroke={isActive ? '#1d4ed8' : '#6b7280'}
-                                                strokeWidth={isActive ? 3 : 1}
-                                                className={`transition-all duration-200 cursor-pointer hover:opacity-80 ${isActive ? 'brightness-90' : ''}`}
+                                            {/* Clickable Polygon */}
+                                            <polygon
+                                                points={coords.polygon}
+                                                fill={isActive ? 'rgba(59, 130, 246, 0.3)' : 'transparent'}
+                                                stroke={isActive ? 'rgba(59, 130, 246, 0.8)' : 'transparent'}
+                                                strokeWidth={isActive ? 0.5 : 0}
+                                                className="transition-all duration-200 cursor-pointer"
+                                                style={{ pointerEvents: 'auto' }}
                                                 onMouseEnter={() => setHoveredRegion(region)}
                                                 onMouseLeave={() => setHoveredRegion(null)}
                                                 onClick={() => setSelectedRegion(selectedRegion === region ? null : region)}
                                             />
+                                            
+                                            {/* Region Name on Hover */}
+                                            {isActive && (
+                                                <g>
+                                                    <rect
+                                                        x={coords.centerX - 8}
+                                                        y={coords.centerY - 3}
+                                                        width="16"
+                                                        height="6"
+                                                        fill="rgba(255, 255, 255, 0.95)"
+                                                        rx="1"
+                                                        className="pointer-events-none drop-shadow-lg"
+                                                    />
+                                                    <text
+                                                        x={coords.centerX}
+                                                        y={coords.centerY + 1}
+                                                        textAnchor="middle"
+                                                        className="pointer-events-none text-[2px] font-bold fill-blue-700"
+                                                    >
+                                                        {region}
+                                                    </text>
+                                                    {data && (
+                                                        <text
+                                                            x={coords.centerX}
+                                                            y={coords.centerY + 2.5}
+                                                            textAnchor="middle"
+                                                            className="pointer-events-none text-[1.5px] font-semibold fill-blue-600"
+                                                        >
+                                                            {data.schools} schools
+                                                        </text>
+                                                    )}
+                                                </g>
+                                            )}
                                         </g>
-                                    );
-                                })}
-
-                                {/* Region Labels */}
-                                {Object.entries(GHANA_REGIONS).map(([region, coords]) => {
-                                    const data = combinedData.find(d => d.region === region);
-                                    if (!data) return null;
-                                    
-                                    return (
-                                        <text
-                                            key={`label-${region}`}
-                                            x={coords.labelX}
-                                            y={coords.labelY}
-                                            textAnchor="middle"
-                                            className="pointer-events-none text-[8px] font-medium"
-                                            fill="#374151"
-                                        >
-                                            {data.schools}
-                                        </text>
                                     );
                                 })}
                             </svg>
                         </div>
 
                         {/* Legend */}
-                        <div className="mt-4 flex items-center justify-between text-sm">
-                            <span className="text-muted-foreground">Fewer Schools</span>
-                            <div className="flex items-center gap-1">
-                                <div className="w-8 h-4 rounded bg-gradient-to-r from-blue-200 to-blue-500"></div>
+                        <div className="mt-6 space-y-3">
+                            <div className="flex items-center justify-center gap-4 text-sm">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded border-2 border-blue-500 bg-blue-100"></div>
+                                    <span className="text-muted-foreground">Selected Region</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <MapPin className="h-4 w-4 text-blue-600" />
+                                    <span className="text-muted-foreground">Interactive Map</span>
+                                </div>
                             </div>
-                            <span className="text-muted-foreground">More Schools</span>
+                            <p className="text-xs text-muted-foreground text-center">
+                                Click on any region to view detailed statistics and educational metrics
+                            </p>
                         </div>
-
-                        <p className="mt-2 text-xs text-muted-foreground text-center">
-                            Click or hover on a region to view detailed statistics
-                        </p>
                     </CardContent>
                 </Card>
             </div>
@@ -221,78 +253,98 @@ export default function GhanaRegionalMap({ regionalData }: GhanaRegionalMapProps
             <div className="lg:col-span-1">
                 <Card className="h-full">
                     <CardHeader>
-                        <CardTitle className="text-lg">Region Details</CardTitle>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                            <School className="h-5 w-5" />
+                            Region Statistics
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         {activeData ? (
                             <div className="space-y-4">
                                 <div>
-                                    <h3 className="text-xl font-bold mb-2">{activeData.region}</h3>
-                                    <Badge variant="outline" className="text-xs">
-                                        Region
-                                    </Badge>
+                                    <h3 className="text-2xl font-bold mb-2">{activeData.region}</h3>
+                                    <div className="flex gap-2">
+                                        <Badge variant="outline" className="text-xs">
+                                            {activeData.region.includes('North') || activeData.region.includes('Upper') || activeData.region.includes('Savannah') ? 'Northern Belt' : 
+                                             activeData.region.includes('Greater Accra') || activeData.region.includes('Central') || activeData.region.includes('Western') ? 'Coastal Region' :
+                                             'Middle Belt'}
+                                        </Badge>
+                                    </div>
                                 </div>
 
+                                {/* Key Metrics Cards */}
                                 <div className="space-y-3">
-                                    <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                                        <School className="h-5 w-5 text-blue-600 mt-0.5" />
+                                    <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20 rounded-lg border-2 border-blue-200 dark:border-blue-800 shadow-sm">
+                                        <School className="h-6 w-6 text-blue-600 mt-0.5" />
                                         <div className="flex-1">
-                                            <div className="text-sm text-muted-foreground">Schools</div>
-                                            <div className="text-2xl font-bold">{activeData.schools.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground uppercase font-semibold">Schools</div>
+                                            <div className="text-3xl font-bold text-blue-700">{activeData.schools.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground mt-1">
+                                                {((activeData.schools / combinedData.reduce((sum, d) => sum + d.schools, 0)) * 100).toFixed(1)}% of national total
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
-                                        <GraduationCap className="h-5 w-5 text-green-600 mt-0.5" />
+                                    <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 rounded-lg border-2 border-green-200 dark:border-green-800 shadow-sm">
+                                        <GraduationCap className="h-6 w-6 text-green-600 mt-0.5" />
                                         <div className="flex-1">
-                                            <div className="text-sm text-muted-foreground">Teachers</div>
-                                            <div className="text-2xl font-bold">{activeData.teachers.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground uppercase font-semibold">Teachers</div>
+                                            <div className="text-3xl font-bold text-green-700">{activeData.teachers.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground mt-1">
+                                                {((activeData.teachers / combinedData.reduce((sum, d) => sum + d.teachers, 0)) * 100).toFixed(1)}% of national total
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-start gap-3 p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-800">
-                                        <Users className="h-5 w-5 text-purple-600 mt-0.5" />
+                                    <div className="flex items-start gap-3 p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950/20 dark:to-purple-900/20 rounded-lg border-2 border-purple-200 dark:border-purple-800 shadow-sm">
+                                        <Users className="h-6 w-6 text-purple-600 mt-0.5" />
                                         <div className="flex-1">
-                                            <div className="text-sm text-muted-foreground">Students</div>
-                                            <div className="text-2xl font-bold">{activeData.students.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground uppercase font-semibold">Students</div>
+                                            <div className="text-3xl font-bold text-purple-700">{activeData.students.toLocaleString()}</div>
+                                            <div className="text-xs text-muted-foreground mt-1">
+                                                {((activeData.students / combinedData.reduce((sum, d) => sum + d.students, 0)) * 100).toFixed(1)}% of national total
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Additional Metrics */}
-                                <div className="pt-4 border-t space-y-2">
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-muted-foreground">Students per School</span>
-                                        <span className="font-medium">
-                                            {activeData.schools > 0 
-                                                ? Math.round(activeData.students / activeData.schools).toLocaleString()
-                                                : 'N/A'}
-                                        </span>
-                                    </div>
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-muted-foreground">Teachers per School</span>
-                                        <span className="font-medium">
-                                            {activeData.schools > 0 
-                                                ? Math.round(activeData.teachers / activeData.schools).toLocaleString()
-                                                : 'N/A'}
-                                        </span>
-                                    </div>
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-muted-foreground">Student-Teacher Ratio</span>
-                                        <span className="font-medium">
-                                            {activeData.teachers > 0 
-                                                ? `${Math.round(activeData.students / activeData.teachers)}:1`
-                                                : 'N/A'}
-                                        </span>
+                                {/* Performance Metrics */}
+                                <div className="pt-4 border-t space-y-3">
+                                    <h4 className="font-semibold text-sm text-muted-foreground uppercase">Performance Indicators</h4>
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between items-center text-sm p-2 bg-muted/50 rounded">
+                                            <span className="text-muted-foreground font-medium">Students per School</span>
+                                            <span className="font-bold text-base">
+                                                {activeData.schools > 0 
+                                                    ? Math.round(activeData.students / activeData.schools).toLocaleString()
+                                                    : 'N/A'}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-sm p-2 bg-muted/50 rounded">
+                                            <span className="text-muted-foreground font-medium">Teachers per School</span>
+                                            <span className="font-bold text-base">
+                                                {activeData.schools > 0 
+                                                    ? Math.round(activeData.teachers / activeData.schools).toLocaleString()
+                                                    : 'N/A'}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between items-center text-sm p-2 bg-muted/50 rounded">
+                                            <span className="text-muted-foreground font-medium">Student-Teacher Ratio</span>
+                                            <span className="font-bold text-base">
+                                                {activeData.teachers > 0 
+                                                    ? `${Math.round(activeData.students / activeData.teachers)}:1`
+                                                    : 'N/A'}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         ) : (
                             <div className="flex flex-col items-center justify-center h-64 text-center">
-                                <School className="h-12 w-12 text-muted-foreground mb-3 opacity-50" />
+                                <MapPin className="h-12 w-12 text-muted-foreground mb-3 opacity-50" />
                                 <h3 className="font-medium mb-1">No Region Selected</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Hover or click on a region on the map to view its statistics
+                                <p className="text-sm text-muted-foreground px-4">
+                                    Click on any region on the map to view detailed educational statistics and performance metrics
                                 </p>
                             </div>
                         )}
