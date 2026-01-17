@@ -12,5 +12,5 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Execute the main command (FrankenPHP)
+# Execute the main command
 exec "$@"
