@@ -1,5 +1,5 @@
 # Stage 1 - Build Frontend (Vite)
-FROM node:20-slim AS frontend
+FROM node:20 AS frontend
 WORKDIR /app
 
 # Install build dependencies
@@ -32,12 +32,12 @@ RUN NODE_ENV=production npm run build
 
 # Verify build output exists
 RUN if [ ! -d "public/build" ] || [ -z "$(ls -A public/build)" ]; then \
-        echo "ERROR: Build output directory is empty or missing!" && \
-        ls -la public/ && \
-        exit 1; \
+    echo "ERROR: Build output directory is empty or missing!" && \
+    ls -la public/ && \
+    exit 1; \
     else \
-        echo "Build successful! Contents:" && \
-        ls -la public/build/; \
+    echo "Build successful! Contents:" && \
+    ls -la public/build/; \
     fi
 
 # Stage 2 - Backend (Laravel + PHP + Composer)
