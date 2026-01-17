@@ -2,42 +2,27 @@
 FROM node:20 AS frontend
 WORKDIR /app
 
-# Install build dependencies
+# Install build dependencies for native modules
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    make \
+    g++ \
     git \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copy package files
 COPY package*.json ./
-
-# Install ALL dependencies (including devDependencies needed for build)
-# Don't set NODE_ENV=production here, we need dev dependencies to build
-RUN npm ci
-
-# Copy all source files needed for build
+RUN npm install
 COPY . .
 
-# Verify required files exist
-RUN test -f vite.config.ts || (echo "ERROR: vite.config.ts missing!" && exit 1)
-RUN test -f resources/css/app.css || (echo "ERROR: resources/css/app.css missing!" && exit 1)
-RUN test -f resources/js/app.tsx || (echo "ERROR: resources/js/app.tsx missing!" && exit 1)
+# Set production environment for Vite
+ENV NODE_ENV=production
 
-# Ensure public/build directory exists and is writable
-RUN mkdir -p public/build && chmod -R 755 public
-
-# Build assets for production
-# Set NODE_ENV=production only for the build command to optimize output
-# Vite will output to public/build automatically
-RUN NODE_ENV=production npm run build
+# Build assets for production (Client + SSR)
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build:ssr -- --debug
 
 # Verify build output exists
 RUN if [ ! -d "public/build" ] || [ -z "$(ls -A public/build)" ]; then \
-    echo "ERROR: Build output directory is empty or missing!" && \
-    ls -la public/ && \
-    exit 1; \
-    else \
-    echo "Build successful! Contents:" && \
-    ls -la public/build/; \
+    echo "ERROR: Vite build failed!" && exit 1; \
     fi
 
 # Stage 2 - Backend (Laravel + PHP + Composer)
@@ -76,11 +61,9 @@ WORKDIR /var/www
 # Copy app files
 COPY . .
 
-# Copy built frontend from Stage 1 (Laravel Vite outputs to public/build)
+# Copy built frontend from Stage 1
 COPY --from=frontend --chown=www-data:www-data /app/public/build ./public/build
-
-# Verify build assets were copied correctly
-RUN ls -la public/build/ 2>/dev/null || echo "Warning: public/build directory may be empty"
+COPY --from=frontend --chown=www-data:www-data /app/bootstrap/ssr ./bootstrap/ssr
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
